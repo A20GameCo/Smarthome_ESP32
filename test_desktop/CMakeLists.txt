@@ -12,6 +12,9 @@ include_directories(../.pio/libdeps/esp32cam/ArduinoJson/src)
 
 set(ADDITIONAL_SOURCES ../src/connectors/request.cpp)
 
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+include (gcovr)
+
 message("Scanning for test files...")
 file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 foreach(filename ${files})
