@@ -699,7 +699,6 @@ void handleRequest(std::shared_ptr<Request> req) {
         return;
       }
     }
-    return;
   } else if (client_id_ != req->getReceiver()) {
     // Return if the client is not the receiver of the message
     return;
