@@ -8,7 +8,7 @@
 
 class Mapping_Reference {
 protected:
-  byte code_count;
+  uint8_t code_count;
   unsigned long codes[MAPPING_MAX_CODES];
   char command_name[MAPPING_MAX_COMMAND_NAME_LEN];
 public:
@@ -16,7 +16,7 @@ public:
 
   explicit Mapping_Reference(JsonArray data, const char *name);
 
-  byte getCodeCount() const;
+  uint8_t getCodeCount() const;
 
   const char *getName();
 

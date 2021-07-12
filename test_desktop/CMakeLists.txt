@@ -10,7 +10,7 @@ add_compile_definitions(UNIT_TEST)
 
 include_directories(../.pio/libdeps/esp32cam/ArduinoJson/src)
 
-set(ADDITIONAL_SOURCES ../src/connectors/request.cpp)
+set(ADDITIONAL_SOURCES ../src/connectors/request.cpp ../src/gadgets/sh_gadget.cpp ../src/connectors/ir_gadget.cpp)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 include (gcovr)

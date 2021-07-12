@@ -8,7 +8,5 @@ protected:
 public:
   Radio_Gadget();
 
-  explicit Radio_Gadget(JsonObject);
-
   void refresh() override;
 };

@@ -117,7 +117,7 @@ bool IR_Gadget::sendIR(unsigned long command, const uint8_t com_type) {
       blaster_->sendSAMSUNG(command);
       break;
     case LG:
-      blaster_->sendLG(command);
+       blaster_->sendLG(command);
       break;
     case DENON:
       blaster_->sendDenon(command);

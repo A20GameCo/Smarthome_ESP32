@@ -3,9 +3,7 @@
 #include <cstring>
 #include <functional>
 #include <vector>
-#include <Arduino.h>
 #include <memory>
-#include "ArduinoJson.h"
 #include "../mapping_reference.h"
 #include "../system_settings.h"
 #include "../datatypes.h"
@@ -14,8 +12,8 @@
 #include "../connectors/ir_gadget.h"
 #include "../connectors/radio_gadget.h"
 #include "gadget_characteristic_settings.h"
-#include "connectors/event.h"
-#include "../main_system_controller.h"
+#include "../connectors/event.h"
+//#include "../main_system_controller.h"
 
 // Pair for mapping
 using mapping_pair = std::tuple<GadgetMethod, std::vector<unsigned long>>;
@@ -65,7 +63,7 @@ private:
   std::shared_ptr<Radio_Gadget> radio_gadget_;
 
   // Controller for the main system. Behaves like a bundle of callbacks of a "delegate lite"
-  std::shared_ptr<MainSystemController> main_controller_;
+//  std::shared_ptr<MainSystemController> main_controller_;
 
 protected:
 
@@ -257,5 +255,5 @@ public:
    * Sets the main controller for the created gadget.
    * @param controller The controller for the main system
    */
-  void setMainController(std::shared_ptr<MainSystemController> controller);
+//  void setMainController(std::shared_ptr<MainSystemController> controller);
 };

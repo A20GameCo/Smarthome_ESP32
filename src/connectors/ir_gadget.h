@@ -1,10 +1,12 @@
 #pragma once
 
-#include <Arduino.h>
+#ifdef UNIT_TEST
+#include "../test_dummys/ir_dummy.h"
+#else
 #include <IRrecv.h>
 #include <IRsend.h>
-#include <IRremoteESP8266.h>
-#include <ArduinoJson.h>
+#endif //UNIT_TEST
+
 #include "code_gadget.h"
 
 // Gadget to send and receive IR-Commands
