@@ -4,7 +4,7 @@
 #include "../src/console_logger.h"
 
 void test_blub() {
-  assert(true);
+  assert(false);
 }
 
 int main () {

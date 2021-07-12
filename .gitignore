@@ -12,4 +12,5 @@ network_settings.h
 flash_info.h
 doc
 static_config.h
-/test_static/build/
+/test_desktop/build/
+/test_reports/

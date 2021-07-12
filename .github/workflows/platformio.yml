@@ -83,4 +83,4 @@ jobs:
       run: pio lib install
 
     - name: Run Tests
-      run: cd test_static && python3 run_static_tests.py
+      run: cd test_desktop && python3 run_desktop_tests.py
