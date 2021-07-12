@@ -4,7 +4,12 @@ import argparse
 from typing import Optional
 
 
-def run_tests(force_compiler: Optional[str] = None) -> bool:
+def run_tests(force_compiler: Optional[str] = None, clean: bool = False) -> bool:
+    if clean:
+        if os.path.isdir("build"):
+            print("Removing 'build' directory")
+            os.system("rm -rf build")
+
     if not os.path.isdir("build"):
         os.system("mkdir build")
 
@@ -24,6 +29,7 @@ def parse_args():
     """Parses the arguments given to the script"""
     parser = argparse.ArgumentParser()
     parser.add_argument('--compiler', type=str, help='Compiler to use')
+    parser.add_argument('--clean', action="store_true", help='Cleans the build dir before compiling', default=False)
     return parser.parse_args()
 
 
@@ -31,9 +37,9 @@ if __name__ == "__main__":
     args = parse_args()
 
     if args.compiler:
-        test_status = run_tests(args.compiler)
+        test_status = run_tests(args.compiler, clean=args.clean)
     else:
-        test_status = run_tests()
+        test_status = run_tests(clean=args.clean)
 
     if test_status:
         sys.exit(0)

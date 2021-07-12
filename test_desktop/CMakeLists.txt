@@ -10,7 +10,7 @@ add_compile_definitions(UNIT_TEST)
 
 include_directories(../.pio/libdeps/esp32cam/ArduinoJson/src)
 
-set(SOURCE_FILES test_example.cpp ../src/connectors/request.cpp)
+set(ADDITIONAL_SOURCES ../src/connectors/request.cpp)
 
 message("Scanning for test files...")
 file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
@@ -18,6 +18,7 @@ foreach(filename ${files})
     set(f_test "")
     cmake_path(GET filename FILENAME f_test)
     if (${f_test} MATCHES "test_[a-z_]+\\.cpp")
+        set(SOURCE_FILES ${filename} ${ADDITIONAL_SOURCES})
         string(REPLACE ".cpp" "" f_name ${f_test})
         add_executable(${f_name} ${SOURCE_FILES})
         add_test(NAME ${f_name} COMMAND ${f_name})
