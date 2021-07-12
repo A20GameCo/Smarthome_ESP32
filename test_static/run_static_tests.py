@@ -12,7 +12,7 @@ def run_tests(force_compiler: Optional[str] = None) -> bool:
     if force_compiler:
         compiler_select = f" -DCMAKE_C_COMPILER={force_compiler} -DCMAKE_CXX_COMPILER={force_compiler} "
         print(f"Forcing '{force_compiler}' compiler")
-    success = os.system(f"cd build && cmake ..{compiler_select}&& make && ./static_tests") == 0
+    success = os.system(f"cd build && cmake ..{compiler_select}&& make && ctest") == 0
     return success
 
 
